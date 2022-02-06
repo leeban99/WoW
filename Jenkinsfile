@@ -22,8 +22,8 @@ pipeline {
         stage('build and push to ECR') {
              steps {
                   script {
-                        sh 'build_push.sh'
                         sh 'echo $HOME'
+                        sh 'build_push.sh'
                         // Script will use the
                         //'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 976676792625.dkr.ecr.us-east-2.amazonaws.com'
                   }
