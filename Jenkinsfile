@@ -9,16 +9,13 @@ pipeline {
         stage('Build'){
             steps{
                   sh 'ls -ltr'
-                }
-
             }
         }
         stage('Deploy'){
             steps{
                   sh 'ls -ltr'
-                }
-
             }
+
         }
 
     }
