@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages{
-        stage(‘Logging into AWS ECR’) {
+        stage('Logging into AWS ECR') {
             steps {
                 script {
                     sh "Inside logging into AWS ECR"
