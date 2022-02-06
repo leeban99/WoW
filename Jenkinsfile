@@ -19,9 +19,7 @@ pipeline {
         stage('Deploy'){
              steps{
                   script{
-                    docker.withRegistry(
-                        'https://976676792625.dkr.ecr.us-east-2.amazonaws.com',
-                        'ecr:us.east-2:my.aws.credentials')
+                    docker.withRegistry('https://976676792625.dkr.ecr.us-east-2.amazonaws.com','ecr:us-east-2:my.aws.credentials')
                         def myImage = docker.build('test')
                         myImage.push('latest')
                   }
