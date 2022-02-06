@@ -30,7 +30,7 @@ pipeline {
                   sh 'ls -ltr'
             }
         }
-        stage('Build Image'){
+        stage('Build-image){
             steps{
                 script{
                     dockerImage = docker.build '${IMAGE_REPO_NAME}:${IMAGE_TAG}'
