@@ -14,7 +14,6 @@ pipeline {
                 script {
                     sh 'echo Inside logging into AWS ECR'
                     sh 'ls -ltr'
-                    sh 'aws configure'
                     sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 976676792625.dkr.ecr.us-east-2.amazonaws.com'
                 }
             }
