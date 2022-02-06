@@ -13,6 +13,9 @@ pipeline {
             steps {
                 script {
                     sh 'echo Inside logging into AWS ECR'
+                    sh 'aws configure set aws_access_key_id AKIA6GZTZFEYW7CKCPPG'
+                    sh 'aws configure set aws_secret_access_key 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'
+                    sh 'aws configure set region us-east-2'
                     sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION}'
                 }
             }
