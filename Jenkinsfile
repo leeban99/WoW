@@ -8,7 +8,7 @@ pipeline {
     stages{
         stage('Build'){
             steps{
-                  sh 'ls -ltr'
+                  sh 'mvn clean package'
             }
         }
         stage('Deploy'){
