@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo Inside logging into AWS ECR'
-                    sh 'aws ecr get-login-password —-region ${AWS_DEFAULT_REGION}'
+                    sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION}'
                 }
             }
         }
