@@ -9,15 +9,6 @@ pipeline {
     }
 
     stages{
-        stage('Logging into AWS ECR') {
-            steps {
-                script {
-                    sh 'echo Inside logging into AWS ECR'
-                    sh 'ls -ltr'
-                    sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 976676792625.dkr.ecr.us-east-2.amazonaws.com'
-                }
-            }
-        }
         stage('Build'){
             steps{
                   sh 'mvn clean package'
@@ -28,12 +19,15 @@ pipeline {
                   sh 'ls -ltr'
             }
         }
-        stage('image'){
-            steps{
-                script{
-                    dockerImage = docker.build '${IMAGE_REPO_NAME}:${IMAGE_TAG}'
-                }
-            }
+        stage('build and push to ECR') {
+             steps {
+                  script {
+                        sh 'build_push.sh'
+                        sh 'echo $HOME'
+                        // Script will use the
+                        //'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 976676792625.dkr.ecr.us-east-2.amazonaws.com'
+                  }
+             }
         }
 
 
